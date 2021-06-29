@@ -17,7 +17,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src') // 设置’@‘指向‘src’目录
-    }
+    },
+    // 忽略后缀名的配置选项, 添加 .vue 选项时要记得原本默认忽略的选项也要手动写入
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
   },
   base: './', // 设置打包路径
   server: {
@@ -25,12 +27,6 @@ export default defineConfig({
     open: true, // 设置服务启动时是否自动打开浏览器
     cors: true, // 设置是否允许跨域
     proxy: {
-      '': {
-        target: '',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace('', '')
-      }
     }
   }
 })

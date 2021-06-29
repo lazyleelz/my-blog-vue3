@@ -14,6 +14,8 @@ import store from './store/index'
 
 import ElementPlus from 'element-plus'
 
+import '@/style/common.stylus'
+
 createApp(App)
 .use(router)
 .use(store)
